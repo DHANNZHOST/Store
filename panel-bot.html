@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Panel Bot</title>
+    <style>
+  
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f6f6f6;
+        }
+        .header {
+            background-color: #f64a4a;
+            color: white;
+            padding: 10px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .header input {
+            width: 90%;
+            padding: 10px;
+            border-radius: 5px;
+            border: none;
+        }
+        .carousel-container {
+            overflow-x: auto;
+            white-space: nowrap;
+            padding: 20px 10px;
+            display: flex;
+            gap: 10px;
+        }
+        .card {
+            display: inline-block;
+            background-color: white;
+            border-radius: 20px;
+            padding: 65px; /* 15
+            width: 320%; /* Lebar kartu produk sesuai dengan permintaan */
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.15);
+            text-align: center;
+            white-space: normal;
+        }
+        .card img {
+            max-width: 100%;
+            border-radius: 10px;
+            margin-bottom: 15px;
+        }
+        .card button {
+            background-color: #25D366;
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 14px;
+        }
+        .card button:hover {
+            background-color: #1ebe5b;
+        }
+        .carousel-container::-webkit-scrollbar {
+            display: none; /* Hilangkan scrollbar */
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <input type="text" id="search-input" placeholder="Cari produk...">
+    </div>
+
+    <div class="carousel-container" id="carousel">
+        <div class="card" data-name="Panel Bot">
+            <img src="https://pomf2.lain.la/f/5nh1kxw.png" alt="GAMBAR PTRODTYL">
+            <h3>Panel Bot 1Gb</h3>
+            <p>Panel Bot Dengan Kualitas Buruk.</p>
+            <button onclick="openWhatsApp('Panel Bot1gb')">Pesan via WhatsApp</button>
+        </div>
+        <div class="card" data-name="Panel Bot">
+            <img src="https://pomf2.lain.la/f/5nh1kxw.png" alt="Gambar ptrodactyl">
+            <h3>Panel Bot 2Gb</h3>
+            <p>Panel Bot Berkualitas Buruk.</p>
+            <button onclick="openWhatsApp('Panem Bot2Gb')">Pesan via WhatsApp</button>
+        </div>
+      <div class="card" data-name="Panel Bot">
+            <img src="https://pomf2.lain.la/f/5nh1kxw.png" alt="Gambar ptrodactyl">
+            <h3>Panel Bot 2Gb</h3>
+            <p>Panel Bot Berkualitas Buruk.</p>
+            <button onclick="openWhatsApp('Panem Bot2Gb')">Pesan via WhatsApp</button>
+        </div>
+      <div class="card" data-name="Panel Bot">
+            <img src="https://pomf2.lain.la/f/5nh1kxw.png" alt="Gambar ptrodactyl">
+            <h3>Panel Bot 2Gb</h3>
+            <p>Panel Bot Berkualitas Buruk.</p>
+            <button onclick="openWhatsApp('Panem Bot2Gb')">Pesan via WhatsApp</button>
+        </div>
+      <div class="card" data-name="Panel Bot">
+            <img src="https://pomf2.lain.la/f/5nh1kxw.png" alt="Gambar ptrodactyl">
+            <h3>Panel Bot 2Gb</h3>
+            <p>Panel Bot Berkualitas Buruk.</p>
+            <button onclick="openWhatsApp('Panem Bot2Gb')">Pesan via WhatsApp</button>
+        </div>
+      <div class="card" data-name="Panel Bot">
+            <img src="https://pomf2.lain.la/f/5nh1kxw.png" alt="Gambar ptrodactyl">
+            <h3>Panel Bot 2Gb</h3>
+            <p>Panel Bot Berkualitas Buruk.</p>
+            <button onclick="openWhatsApp('Panem Bot2Gb')">Pesan via WhatsApp</button>
+        </div>
+      <div class="card" data-name="Panel Bot">
+            <img src="https://pomf2.lain.la/f/5nh1kxw.png" alt="Gambar ptrodactyl">
+            <h3>Panel Bot 2Gb</h3>
+            <p>Panel Bot Berkualitas Buruk.</p>
+            <button onclick="openWhatsApp('Panem Bot2Gb')">Pesan via WhatsApp</button>
+        </div>
+      <div class="card" data-name="Panel Bot">
+            <img src="https://pomf2.lain.la/f/5nh1kxw.png" alt="Gambar ptrodactyl">
+            <h3>Panel Bot 2Gb</h3>
+            <p>Panel Bot Berkualitas Buruk.</p>
+            <button onclick="openWhatsApp('Panem Bot2Gb')">Pesan via WhatsApp</button>
+        </div>
+    </div>
+  
+  <center>
+    <marquee> <span style="color: #00E1FF">&copy; DHANXZ OFFC </marquee>
+    </span>
+  </center>
+  
+    <script>
+        function searchProducts() {
+            const searchInput = document.getElementById('search-input').value.toLowerCase();
+            const products = document.querySelectorAll('.card');
+
+            products.forEach(product => {
+                const productName = product.getAttribute('data-name').toLowerCase();
+                product.style.display = productName.includes(searchInput) ? 'inline-block' : 'none';
+            });
+        }
+
+        function openWhatsApp(productName) {
+            const phoneNumber = "6287748834200"; // Ganti dengan nomor WhatsApp penjual
+            const message = `Halo, saya tertarik untuk membeli produk ${productName}.`;
+            const url = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
+            window.open(url, '_blank');
+        }
+
+        document.getElementById('search-input').addEventListener('input', searchProducts);
+    </script>
+</body>
+</html>
