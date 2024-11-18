@@ -1,491 +1,168 @@
 <!DOCTYPE html>
 <html lang="id">
-
-<head> 
+<head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Store By Dhannz - Website Jualan</title>
-    <!-- Link Font Awesome -->
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
-
+    <title>Panel Bot</title>
     <style>
-        /* Global Style */
-        * {
+  
+        body {
+            font-family: Arial, sans-serif;
             margin: 0;
             padding: 0;
-            box-sizing: border-box;
-            font-family: 'Poppins', sans-serif;
+            background-color: #f6f6f6;
         }
-
-        body {
-            background-color: #f0f0f0;
-            color: #333;
-            font-size: 16px;
-            line-height: 1.6;
-        }
-
-        a {
-            text-decoration: none;
-            color: inherit;
-        }
-
-        ul {
-            list-style: none;
-        }
-
-        /* Header */
-        header {
-            background: linear-gradient(135deg, #1f2022, #4e6e81);
-            color: #fff;
-            padding: 15px 0;
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-        }
-
-        header nav {
-            max-width: 1200px;
-            margin: 0 auto;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 0 20px;
-        }
-
-        header .logo h1 {
-            font-size: 2rem;
-            font-weight: 700;
-        }
-
-        header ul {
-            display: flex;
-            gap: 30px;
-        }
-
-        header ul li a {
-            color: #fff;
-            font-size: 1.1rem;
-            font-weight: 500;
-            padding: 10px 20px;
-            text-transform: uppercase;
-            border-radius: 50px;
-            transition: all 0.3s ease;
-        }
-
-        header ul li a:hover {
-            background: #3498db;
-            color: #fff;
-            transform: scale(1.1);
-        }
-
-        /* Hero Section */
-        .hero {
-            background: url('https://pomf2.lain.la/f/ugos4tk.jpeg') center center/cover;
-            height: 100vh;
+        .header {
+            background-color: #f64a4a;
+            color: white;
+            padding: 10px;
             display: flex;
             justify-content: center;
             align-items: center;
-            position: relative;
-            color: white;
-            text-align: center;
         }
-
-        .hero::after {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0, 0, 0, 0.4);
-        }
-
-        .hero-content {
-            position: relative;
-            z-index: 2;
-        }
-
-        .hero h2 {
-            font-size: 3.5rem;
-            margin-bottom: 20px;
-            animation: fadeInUp 1s ease-out;
-        }
-
-        .hero p {
-            font-size: 1.3rem;
-            margin-bottom: 40px;
-            animation: fadeInUp 1s ease-out 0.3s;
-        }
-
-        .btn {
-            background-color: #e74c3c;
-            color: #fff;
-            padding: 12px 30px; /* Mengurangi padding vertikal agar tombol tidak terlalu besar */
-            font-size: 1em; /* Mengurangi ukuran font */
-            text-transform: uppercase;
-            font-weight: 700;
-            border-radius: 50px;
-            letter-spacing: 1px;
+        .header input {
+            width: 90%;
+            padding: 10px;
+            border-radius: 5px;
             border: none;
-            cursor: pointer;
-            transition: all 0.3s ease-in-out;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-            display: inline-block;
-            min-width: 150px;
-            text-align: center;
         }
-        
-        .form-button {
-            background-color: #3498db;
-            padding: 12px 30px; /* Mengurangi padding vertikal */
-            font-size: 1rem; /* Mengurangi ukuran font */
-            color: white;
-            border: none;
-            border-radius: 50px;
-            cursor: pointer;
-            font-weight: 700;
-            transition: all 0.3s ease;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-            display: inline-block;
-            min-width: 150px;
-            text-align: center;
-        }
-.btn i {
-            margin-right: 10px;
-        }
-
-        .btn:hover {
-            background-color: #c0392b;
-            transform: scale(1.05);
-            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
-        }
-
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(50px);
-            }
-
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        /* Produk Section */
-        .produk {
-            background-color: #fff;
-            padding: 80px 20px;
-            text-align: center;
-        }
-
-        .produk h2 {
-            font-size: 2.5rem;
-            margin-bottom: 40px;
-        }
-
-        .produk-list {
+        .carousel-container {
+            overflow-x: auto;
+            white-space: nowrap;
+            padding: 20px 10px;
             display: flex;
-            justify-content: space-around;
-            flex-wrap: wrap;
-            gap: 20px;
+            gap: 10px;
         }
-
-        .produk-item {
-            background-color: #fff;
-            padding: 20px;
-            border-radius: 10px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        .card {
+            display: inline-block;
+            background-color: white;
+            border-radius: 15px;
+            padding: 75px; /* 15
+            width: 320%; /* Lebar kartu produk sesuai dengan permintaan */
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.15);
             text-align: center;
-            width: 300px;
-            transition: all 0.3s ease;
+            white-space: normal;
         }
-
-        .produk-item:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
-        }
-
-        .produk-item img {
-            width: 100%;
-            height: 200px;
-            object-fit: cover;
+        .card img {
+            max-width: 100%;
             border-radius: 10px;
-            transition: all 0.3s ease;
-        }
-
-        .produk-item img:hover {
-            transform: scale(1.05);
-        }
-
-        .produk-item h3 {
-            font-size: 1.6rem;
-            margin: 20px 0;
-        }
-
-        .produk-item p {
-            font-size: 1.1rem;
             margin-bottom: 15px;
         }
-
-        .produk-item span {
-            font-size: 1.3rem;
-            font-weight: 700;
-            color: #e74c3c;
-        }
-
-        .produk-item .btn {
-            background-color: #3498db;
-            padding: 12px 25px;
-            font-size: 1.2rem;
-            text-transform: uppercase;
-            border-radius: 30px;
-            font-weight: 700;
-            color: white;
-            letter-spacing: 2px;
-            transition: all 0.3s ease;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            display: inline-block;
-            min-width: 150px;
-            text-align: center;
-        }
-
-        .produk-item .btn i {
-            margin-right: 8px;
-        }
-
-        .produk-item .btn:hover {
-            background-color: #2980b9;
-            transform: scale(1.1);
-            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
-        }
-
-        /* Contact Section */
-        #contact {
-            padding: 80px 20px;
-            background-color: #ecf0f1;
-        }
-
-        #contact h2 {
-            font-size: 2.5rem;
-            margin-bottom: 40px;
-            text-align: center;
-        }
-
-        #contact .form-input {
-            padding: 12px;
-            width: 100%;
-            max-width: 500px;
-            margin: 10px 0;
-            border-radius: 8px;
-            border: 1px solid #ddd;
-            font-size: 1rem;
-        }
-
-        #contact .form-button {
-            background-color: #3498db;
-            padding: 15px 30px;
-            font-size: 1.2rem;
+        .card button {
+            background-color: #25D366;
             color: white;
             border: none;
-            border-radius: 50px;
+            padding: 10px 15px;
+            border-radius: 5px;
             cursor: pointer;
-            font-weight: 700;
-            transition: all 0.3s ease;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-            display: inline-block;
-            min-width: 150px;
-            text-align: center;
+            font-size: 14px;
         }
-
-        #contact .form-button i {
-            margin-right: 10px;
+        .card button:hover {
+            background-color: #1ebe5b;
         }
-
-        #contact .form-button:hover {
-            background-color: #2980b9;
-            transform: scale(1.1);
-            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
-        }
-
-        /* Footer Styles */
-        footer {
-            background-color: #2c3e50;
-            color: #fff;
-            padding: 30px 20px;
-            text-align: center;
-        }
-footer p {
-            font-size: 1rem;
-            color: #bdc3c7;
-        }
-
-        /* Media Queries for Mobile & Tablet Responsiveness */
-        /* For mobile phones */
-        @media (max-width: 768px) {
-            header nav {
-                flex-direction: column;
-                align-items: center;
-            }
-
-            header ul {
-                display: block;
-                margin-top: 20px;
-            }
-
-            header ul li {
-                margin: 10px 0;
-            }
-
-            .produk-list {
-                flex-direction: column;
-                align-items: center;
-            }
-
-            .produk-item {
-                width: 100%;
-                max-width: 350px;
-                margin-bottom: 20px;
-            }
-
-            .produk-item img {
-                height: 180px;
-            }
-
-            .form-button {
-                width: 100%;
-                max-width: 500px;
-            }
+        .carousel-container::-webkit-scrollbar {
+            display: none; /* Hilangkan scrollbar */
         }
     </style>
 </head>
-
 <body>
-    <header>
-        <nav>
-            <div class="logo">
-                <h1>Store By Dhannz</h1>
-            </div>
-            <ul>
-                <li><a href="#home">Home</a></li>
-                <li><a href="#produk">Produk</a></li>
-                <li><a href="#contact">Kontak</a></li>
-            </ul>
-        </nav>
-    </header>
+    <div class="header">
+        <input type="text" id="search-input" placeholder="Cari produk...">
+    </div>
 
-    <section class="hero" id="home">
-        <div class="hero-content">
-            <h2>Selamat Datang di Web Store By Dhannz</h2>
-            <p>Temukan produk terbaik dengan harga terbaik di sini!</p>
-            <a href="https://wa.me/6287748834200?text=Halo!%20Saya%20tertarik%20dengan%20produk%20anda" class="btn" target="_blank"><i class="fas fa-shopping-cart"></i> Beli Sekarang</a>
+    <div class="carousel-container" id="carousel">
+        <div class="card" data-name="Panel Bot">
+            <img src="https://pomf2.lain.la/f/5nh1kxw.png/460x460?text=Gambar+Ptrodacryl" alt="GAMBAR PTRODTYL">
+            <h3>Panel Bot 1Gb</h3>
+            <p>Panel Bot Dengan Kualitas Buruk.</p>
+            <button onclick="openWhatsApp('Panel Bot1gb')">Pesan via WhatsApp</button>
         </div>
-    </section>
-
-    <section class="produk" id="produk">
-        <h2>Produk Dhannz</h2>
-        <div class="produk-list">
-            <div class="produk-item"> 
-                <img src="https://pomf2.lain.la/f/5nh1kxw.png" alt="Produk 1">
-                <h3>PANEL 1GB</h3> <!-- Isi nama produk -->
-                <p>KUALITAS RENDAH/JELEK</p> <!-- isi detail produk -->
-                <span>Rp 1.000</span> <!-- isi harga produk -->
-                <a href="https://wa.me/6287748834200?text=Halo!%20Saya%20tertarik%20dengan%20Panel 1GB" class="btn" target="_blank"><i class="fas fa-cart-plus"></i> Beli Sekarang</a>
-            </div> 
-            <div class="produk-item">
-                <img src="https://pomf2.lain.la/f/5nh1kxw.png" alt="Produk 2">
-                <h3>PANEL 2GB</h3>
-                <p>KUALITAS RENDAH</p>
-                <span>Rp 2.000</span>
-                <a href="https://wa.me/6287748834200?text=Halo!%20Saya%20tertarik%20dengan%20Produk Panel 2GB" class="btn" target="_blank"><i class="fas fa-cart-plus"></i> Beli Sekarang</a>
-            </div>
-            <div class="produk-item">
-                <img src="https://pomf2.lain.la/f/5nh1kxw.png" alt="Produk 2">
-                <h3>PANEL 3GB</h3>
-                <p>KUALITAS RENDAH</p>
-                <span>Rp 3.000</span>
-                <a href="https://wa.me/6287748834200?text=Halo!%20Saya%20tertarik%20dengan%20Panel%203GB" class="btn" target="_blank"><i class="fas fa-cart-plus"></i> Beli Sekarang</a>
-            </div>
-            <div class="produk-item">
-                <img src="https://pomf2.lain.la/f/5nh1kxw.png" alt="Produk 2">
-                <h3>PANEL 4GB</h3>
-                <p>KUALITAS STANDAR</p>
-                <span>Rp 4.000</span>
-                <a href="https://wa.me/6287748834200?text=Halo!%20Saya%20tertarik%20dengan%20Panel%204GB" class="btn" target="_blank"><i class="fas fa-cart-plus"></i> Beli Sekarang</a>
-            </div>
-            <div class="produk-item">
-                <img src="https://pomf2.lain.la/f/5nh1kxw.png" alt="Produk 2">
-                <h3>PANEL 5GB</h3>
-                <p>KUALITAS STANDAR</p>
-                <span>Rp 5.000</span>
-                <a href="https://wa.me/6287748834200?text=Halo!%20Saya%20tertarik%20dengan%20Panel%205GB" class="btn" target="_blank"><i class="fas fa-cart-plus"></i> Beli Sekarang</a>
-            </div>
-            <div class="produk-item">
-                <img src="https://pomf2.lain.la/f/5nh1kxw.png" alt="Produk 2">
-                <h3>PANEL 6GB</h3>
-                <p>KUALITAS STANDAR</p>
-                <span>Rp 6.000</span>
-                <a href="https://wa.me/6287748834200?text=Halo!%20Saya%20tertarik%20dengan%20Panel%206GB" class="btn" target="_blank"><i class="fas fa-cart-plus"></i> Beli Sekarang</a>
-            </div>
-            <div class="produk-item">
-                <img src="https://pomf2.lain.la/f/5nh1kxw.png" alt="Produk 2">
-                <h3>PANEL 7GB</h3>
-                <p>KUALITAS BAGUS</p>
-                <span>Rp 150,000</span>
-                <a href="https://wa.me/6287748834200?text=Halo!%20Saya%20tertarik%20dengan%20Panel%207GB" class="btn" target="_blank"><i class="fas fa-cart-plus"></i> Beli Sekarang</a>
-            </div>
-            <div class="produk-item">
-                <img src="https://pomf2.lain.la/f/5nh1kxw.png" alt="Produk 2">
-                <h3>PANEL 8GB</h3>
-                <p>KUALITAS BAGUS</p>
-                <span>Rp 8GB</span>
-                <a href="https://wa.me/6287748834200?text=Halo!%20Saya%20tertarik%20dengan%20Panel%208GB" class="btn" target="_blank"><i class="fas fa-cart-plus"></i> Beli Sekarang</a>
-            </div>
-            <div class="produk-item">
-                <img src="https://pomf2.lain.la/f/5nh1kxw.png" alt="Produk 2">
-                <h3>PANEL 9GB</h3>
-                <p>KUALITAS BAGUS</p>
-                <span>Rp 9.000</span>
-                <a href="https://wa.me/6287748834200?text=Halo!%20Saya%20tertarik%20dengan%20Panel%209GB" class="btn" target="_blank"><i class="fas fa-cart-plus"></i> Beli Sekarang</a>
-            </div>
-            <div class="produk-item">
-                <img src="https://pomf2.lain.la/f/5nh1kxw.png" alt="Produk 3">
-                <h3>PANEL UNLIMITED</h3>
-                <p>KUALITAS BAGUS/FAST⚡</p>
-                <span>Rp 10.000</span>
-                <a href="https://wa.me/6287748834200?text=Halo!%20Saya%20tertarik%20dengan%20Produk%20Reseller%20Panel" class="btn" target="_blank"><i class="fas fa-cart-plus"></i> Beli Sekarang</a> 
-            </div>
-            <div class="produk-item">
-                <img src="https://pomf2.lain.la/f/ugos4tk.jpeg" alt="Produk 3">
-                <h3>RESELLER PANEL</h3>
-                <p>*KEUNTUNGAN JOIN RESELER PANEL BY DHANNZ*🤖
-**HARGA 5K/BULAN - 10K/PERMA**
-- *BEBAS MEMBUAT PANEL*
-- *JANGAN SERING CREATE UNLI*
-- *SERVER PANEL ANTI LAG/DELAY ( JIKA LAG/DELAY MUNGKIN JARINGAN KALIAN BERMASALAH)*
-- *BISA JUALAN PANEL*
-- *BISA BIKIN BOT* 
-- *DI JAMIN BALMOND* ( *JIKA BERUSAHA*‼️)</p>
-                <span>Rp 12.000</span>
-                <a href="https://wa.me/6287748834200?text=Halo!%20Saya%20tertarik%20dengan%20Produk%20Reseller Panel" class="btn" target="_blank"><i class="fas fa-cart-plus"></i> Beli Sekarang</a>
-            </div>
+        <div class="card" data-name="Panel Bot">
+            <img src="https://pomf2.lain.la/f/5nh1kxw.png/460x460?text=Panel+Bot2gb" alt="Gambar ptrodactyl">
+            <h3>Panel Bot 2Gb</h3>
+            <p>Panel Bot Berkualitas Buruk.</p>
+            <button onclick="openWhatsApp('Panem Bot2Gb')">Pesan via WhatsApp</button>
         </div>
-    </section>
+      <div class="card" data-name="Panel Bot">
+            <img src="https://pomf2.lain.la/f/5nh1kxw.png/460x460?text=Panel+Bot2gb" alt="Gambar ptrodactyl">
+            <h3>Panel Bot 2Gb</h3>
+            <p>Panel Bot Berkualitas Buruk.</p>
+            <button onclick="openWhatsApp('Panem Bot2Gb')">Pesan via WhatsApp</button>
+        </div>
+      <div class="card" data-name="Panel Bot">
+            <img src="https://pomf2.lain.la/f/5nh1kxw.png/460x460?text=Panel+Bot2gb" alt="Gambar ptrodactyl">
+            <h3>Panel Bot 2Gb</h3>
+            <p>Panel Bot Berkualitas Buruk.</p>
+            <button onclick="openWhatsApp('Panem Bot2Gb')">Pesan via WhatsApp</button>
+        </div>
+      <div class="card" data-name="Panel Bot">
+            <img src="https://pomf2.lain.la/f/5nh1kxw.png/460x460?text=Panel+Bot2gb" alt="Gambar ptrodactyl">
+            <h3>Panel Bot 2Gb</h3>
+            <p>Panel Bot Berkualitas Buruk.</p>
+            <button onclick="openWhatsApp('Panem Bot2Gb')">Pesan via WhatsApp</button>
+        </div>
+      <div class="card" data-name="Panel Bot">
+            <img src="https://pomf2.lain.la/f/5nh1kxw.png/460x460?text=Panel+Bot2gb" alt="Gambar ptrodactyl">
+            <h3>Panel Bot 2Gb</h3>
+            <p>Panel Bot Berkualitas Buruk.</p>
+            <button onclick="openWhatsApp('Panem Bot2Gb')">Pesan via WhatsApp</button>
+        </div>
+      <div class="card" data-name="Panel Bot">
+            <img src="https://pomf2.lain.la/f/5nh1kxw.png/460x460?text=Panel+Bot2gb" alt="Gambar ptrodactyl">
+            <h3>Panel Bot 2Gb</h3>
+            <p>Panel Bot Berkualitas Buruk.</p>
+            <button onclick="openWhatsApp('Panem Bot2Gb')">Pesan via WhatsApp</button>
+        </div>
+      <div class="card" data-name="Panel Bot">
+            <img src="https://pomf2.lain.la/f/5nh1kxw.png/460x460?text=Panel+Bot2gb" alt="Gambar ptrodactyl">
+            <h3>Panel Bot 2Gb</h3>
+            <p>Panel Bot Berkualitas Buruk.</p>
+            <button onclick="openWhatsApp('Panem Bot2Gb')">Pesan via WhatsApp</button>
+        </div>
+      <div class="card" data-name="Panel Bot">
+            <img src="https://pomf2.lain.la/f/5nh1kxw.png/460x460?text=Panel+Bot2gb" alt="Gambar ptrodactyl">
+            <h3>Panel Bot 2Gb</h3>
+            <p>Panel Bot Berkualitas Buruk.</p>
+            <button onclick="openWhatsApp('Panem Bot2Gb')">Pesan via WhatsApp</button>
+        </div>
+      <div class="card" data-name="Panel Bot">
+            <img src="https://pomf2.lain.la/f/5nh1kxw.png/460x460?text=Panel+Bot2gb" alt="Gambar ptrodactyl">
+            <h3>Panel Bot 2Gb</h3>
+            <p>Panel Bot Berkualitas Buruk.</p>
+            <button onclick="openWhatsApp('Panem Bot2Gb')">Pesan via WhatsApp</button>
+        </div>
+        <div class="card" data-name="Smartphone">
+            <img src="https://via.placeholder.com/460x460?text=Smartphone" alt="Smartphone">
+            <h3>Smartphone</h3>
+            <p>Gratis Ongkir untuk pembelian di atas Rp1.000.000!</p>
+            <button onclick="openWhatsApp('Smartphone')">Pesan via WhatsApp</button>
+        </div>
+    </div>
+  
+  <center>
+    <marquee> <span style="color: #00E1FF">&copy; DHANXZ OFFC </marquee>
+    </span>
+  </center>
+  
+    <script>
+        function searchProducts() {
+            const searchInput = document.getElementById('search-input').value.toLowerCase();
+            const products = document.querySelectorAll('.card');
 
-    <section id="contact">
-        <h2>Kontak Owner</h2>
-        <form action="mailto:dhannzstore76@email.com" method="post" enctype="text/plain">
-            <input type="text" name="name" class="form-input" placeholder="Nama Anda" required>
-            <input type="email" name="email" class="form-input" placeholder="Email Anda" required>
-            <textarea name="message" class="form-input" placeholder="Pesan" required></textarea>
-            <button type="submit" class="form-button"><i class="fas fa-paper-plane"></i> Kirim Pesan</button>
-        </form>
-    </section>
+            products.forEach(product => {
+                const productName = product.getAttribute('data-name').toLowerCase();
+                product.style.display = productName.includes(searchInput) ? 'inline-block' : 'none';
+            });
+        }
 
-    <footer>
-        <p>&copy; 2024 Store By Dhannz. All rights reserved.</p>
-    </footer>
+        function openWhatsApp(productName) {
+            const phoneNumber = "6287748834200"; // Ganti dengan nomor WhatsApp penjual
+            const message = `Halo, saya tertarik untuk membeli produk ${productName}.`;
+            const url = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
+            window.open(url, '_blank');
+        }
+
+        document.getElementById('search-input').addEventListener('input', searchProducts);
+    </script>
 </body>
-
-</html> 
+</html>
